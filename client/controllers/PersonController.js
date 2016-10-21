@@ -43,6 +43,8 @@ app.controller('PersonController', function($scope, $location, PersonFactory) {
   $scope.createPerson = function() {
     $scope.errors = {};
     console.log('Creating a person: Angular Controller');
+    $scope.currentUser = $scope.person.firstName;
+
     PersonFactory.create($scope.person, function(data) {
       if (data.errors) {
         console.log(data.errors);
@@ -50,8 +52,6 @@ app.controller('PersonController', function($scope, $location, PersonFactory) {
       } else {
         PersonFactory.index(function(data) {
           $scope.people = data;
-
-          console.log('\nXXXXXXXXXX ====  client/controllers/PersonController.js $scope.people: ' + $scope.people) ;
 
           $scope.person = {};
         });
@@ -63,24 +63,27 @@ app.controller('PersonController', function($scope, $location, PersonFactory) {
 
    $scope.createPoll = function() {
     $scope.errors = {};
-    console.log('Creating a person: Angular Controller');
-    PersonFactory.create($scope.person, function(data) {
+    console.log('Creating a POLL');
+
+    PersonFactory.createPoll($scope.currentUser, $scope.poll, function(data) {
+      console.log('POSTING a poll for: ' + $scope.currentUser);
+
       if (data.errors) {
         console.log(data.errors);
         $scope.errors = data.errors;
-      } else {
+      }
+      else {
         PersonFactory.index(function(data) {
           $scope.people = data;
 
-          console.log('\nXXXXXXXXXX ====  client/controllers/PersonController.js $scope.people: ' + $scope.people) ;
 
-          $scope.person = {};
+          $scope.poll = {};
         });
       }
     });
     console.log("Redirecting to /current");
     $location.path('/current');
-  }
+  } // createPoll()
 
 
   $scope.deletePerson = function(data) {

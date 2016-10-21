@@ -11,15 +11,24 @@ app.factory('PersonFactory', function($http) {
     })
   }
 
+  // create user
   factory.create = function(person, callback) {
     console.log('new_person firstName: '  + person.firstName);
-    console.log('new_person lastName: '  + person.lastName);
-    console.log('new_person birthDay: '  + person.birthDay);
 
     // Go to server/config/routes.js
     $http.post('/people', person).then(function(response) {
       // console.log('Create Method', response);
-      console.log("@@@@ response.data :" + response.data);
+      callback(response.data);
+    });
+  }
+
+  // create user
+  factory.createPoll = function(currentUser, poll, callback) {
+    console.log('createPoll in PersonFactory currentUser: '  + currentUser);
+    console.log('createPoll in PersonFactory question: '  + poll.question);
+
+
+    $http.post('/poll', {"user":currentUser, "poll": poll}).then(function(response) {
       callback(response.data);
     });
   }
