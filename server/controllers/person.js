@@ -17,9 +17,9 @@ module.exports = (function() {
         }
       })
     },
+
     create: function(req, res) {
       console.log('Create method of Person Controller');
-      console.log('server/controllers/person.js: ' + req.body);
 
       //check req.body.name to see if it has @ sign
       if (/* there is not @ sign set */false) {
@@ -30,9 +30,7 @@ module.exports = (function() {
         // translate req.body to Person object;i.e., mongoose schema
         var person = new Person(req.body);
 
-        console.log('\nserver/controllers/person.js person: ' + person.firstName);
-        console.log('server/controllers/person.js person: ' + person.lastName );
-        console.log('server/controllers/person.js person: ' + person.birthDay + "\n");
+        console.log('\nserver controller person: ' + person.firstName);
 
         person.save(function(err, data) {
           if (err) {
@@ -45,6 +43,7 @@ module.exports = (function() {
         })
       } //else
     },
+
     delete: function(req, res) {
       console.log(req.params);
       Person.findOne({_id: req.params.id}, function(err, data) {
