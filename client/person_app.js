@@ -11,12 +11,20 @@ app.config(function ($routeProvider) {
     .when('/', {
       templateUrl: 'partials/login.html'
     })
+
     .when('/current', {
       templateUrl: 'partials/current.html'
     })
+
+    .when('/rating', {
+      templateUrl: 'partials/rating.html'
+    })
+
+
     .when('/new', {
       templateUrl: 'partials/new.html'
     })
+
     .otherwise({
       redirectTo: '/'
     });
