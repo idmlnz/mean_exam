@@ -9,13 +9,13 @@ app.config(function ($routeProvider) {
 
   $routeProvider
     .when('/', {
-      templateUrl: 'partials/show.html'
+      templateUrl: 'partials/login.html'
+    })
+    .when('/current', {
+      templateUrl: 'partials/current.html'
     })
     .when('/new', {
       templateUrl: 'partials/new.html'
-    })
-    .when('/edit', {
-      templateUrl: 'partials/edit.html'
     })
     .otherwise({
       redirectTo: '/'

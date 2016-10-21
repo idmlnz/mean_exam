@@ -4,7 +4,6 @@
 
 app.factory('PersonFactory', function($http) {
   var factory = {};
-  // var people  = [{name: 'asdf', age: 123}, {name: 'fdsa', age: 321}];
 
   factory.index = function(callback) {
     $http.get('/people').then(function(response) {
@@ -22,8 +21,7 @@ app.factory('PersonFactory', function($http) {
       // console.log('Create Method', response);
       console.log("@@@@ response.data :" + response.data);
       callback(response.data);
-    })
-
+    });
   }
 
   factory.delete = function(person, callback) {

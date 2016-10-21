@@ -3,7 +3,7 @@
  */
 
 
-app.controller('PersonController', function($scope, PersonFactory) {
+app.controller('PersonController', function($scope, $location, PersonFactory) {
   console.log('Person Controller loaded');
   $scope.editMode = false;
   var editAttr = {};
@@ -39,6 +39,7 @@ app.controller('PersonController', function($scope, PersonFactory) {
     $scope.edit_person = data
   }
 
+
   $scope.createPerson = function() {
     $scope.errors = {};
     console.log('Creating a person: Angular Controller');
@@ -55,8 +56,32 @@ app.controller('PersonController', function($scope, PersonFactory) {
           $scope.person = {};
         });
       }
-    })
+    });
+    console.log("Redirecting to /current");
+    $location.path('/current');
   }
+
+   $scope.createPoll = function() {
+    $scope.errors = {};
+    console.log('Creating a person: Angular Controller');
+    PersonFactory.create($scope.person, function(data) {
+      if (data.errors) {
+        console.log(data.errors);
+        $scope.errors = data.errors;
+      } else {
+        PersonFactory.index(function(data) {
+          $scope.people = data;
+
+          console.log('\nXXXXXXXXXX ====  client/controllers/PersonController.js $scope.people: ' + $scope.people) ;
+
+          $scope.person = {};
+        });
+      }
+    });
+    console.log("Redirecting to /current");
+    $location.path('/current');
+  }
+
 
   $scope.deletePerson = function(data) {
     console.log('Deleting a person. :[');

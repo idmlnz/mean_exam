@@ -1,0 +1,19 @@
+  <!-- main page heading -->
+  <div class="container" ng-controller="PersonController">
+    <div class="row">
+      <div class="well col-sm-10 col-sm-offset-1 well-margin" style="margin-top: 10px">
+
+        <!-- login table -->
+        <!-- End login table -->
+        <div class="table-responsive">
+          <form name="userForm">
+            <label for="firstname">First name:</label>
+            <input type="text" ng-model="person.firstName" id="firstname"> <br>
+            <input type="submit" value="login" ng-click="createPerson()" >
+          </form>
+        </div> <!-- End login table -->
+      </div> <!-- End class column -->
+    </div> <!-- End class row -->
+  </div> <!-- End container -->
+
+
