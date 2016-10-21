@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>MEAN - Friends </title>
+  <meta name="description" content="Players and Teams">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="angular/angular.js" charset="utf-8"> </script>
+  <script src="angular-route/angular-route.js" charset="utf-8"> </script>
+  <script src="angular-messages/angular-messages.js" charset="utf-8"> </script>
+
+  <script src="person_app.js"></script>
+  <script src="controllers/PersonController.js"></script>
+  <script src="model/PersonFactory.js"></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <style>
+    .bodycontainer {
+      max-height: 400px;
+      width: 100%;
+      margin: 0;
+      overflow-y: auto;
+    }
+    .table-scrollable {
+      margin: 0;
+      padding: 0;
+    }
+    .bare {
+      border: 0;
+      background:none;
+    }
+  </style>
+
+</head>
+<body>
+
+<!-- main page heading -->
+<div class="jumbotron">
+
+  <div class="container"> <p>MEAN - Friends </p> </div>
+
+  <!-- partial pages -->
+  <div ng-view> </div>
+
+
+</div><!-- End main page heading -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>

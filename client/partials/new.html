@@ -1,0 +1,29 @@
+
+<fieldset ng-controller="PersonController">
+  <div class="row">
+    <div class="well col-sm-10 col-sm-offset-1 well-margin" style="margin-top: 10px">
+      <form name="userForm">
+        <label for="firstname">First name:</label>
+        <input type="text" ng-model="person.firstName" id="firstname"> <br>
+
+        <label for="lastname">Last name:</label>
+        <input type="text" ng-model="person.lastName" id="lastname"> <br>
+        <label for="birthday">Birthday :</label>
+        <input type="date" ng-model="person.birthDay" id="birthDay">
+
+        <input type="submit" value="Create" ng-click="createPerson()" >
+
+      </form>
+
+      <!--
+      <div ng-messages="userForm.error_firstname.$error">
+        <p ng-message="minlength">The player name is too short.</p>
+        <p ng-message="required">The player name is required.</p>
+      </div>
+      -->
+
+    </div>
+
+
+  </div> <!-- End class row -->
+</fieldset>
